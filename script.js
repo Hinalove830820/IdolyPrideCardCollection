@@ -97,6 +97,7 @@ function check() {
   fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${fes} / 11 )`;
 
 }
+check()
 function filter() {
   let pools = ['normal', 'limited', 'fes', 'special',]
 
@@ -126,7 +127,7 @@ function filter() {
   }
 
 }
-
+filter()
 function exportImage() {
   html2canvas(document.querySelector("#capture")).then(function (canvas) {
     a = document.createElement("a");
