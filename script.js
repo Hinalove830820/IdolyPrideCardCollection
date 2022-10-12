@@ -129,6 +129,7 @@ function filter() {
 }
 filter()
 function exportImage() {
+  check()
   html2canvas(document.querySelector("#capture")).then(function (canvas) {
     a = document.createElement("a");
     a.href = canvas
