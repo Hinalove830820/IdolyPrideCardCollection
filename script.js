@@ -129,8 +129,9 @@ function filter() {
 }
 
 function exportImage() {
+  let exportButton = document.getElementById('export')
+  exportButton.style.display = 'none'
   let node = document.getElementById('capture');
-  console.log(node)
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
