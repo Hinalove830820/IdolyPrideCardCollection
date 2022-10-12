@@ -103,10 +103,12 @@ input {
   justify-content: flex-end;
   align-items: flex-end;
   margin: 0 auto;
+  flex-direction: column;
 }
 
 .results {
-  width: 80%;
+  min-width: 80%;
+  margin: 0 auto
 }
 
 .result {
@@ -118,6 +120,7 @@ input {
 #export {
   margin: 10px auto;
   min-width: fit-content;
+  max-width: fit-content;
 }
 
 #title {
