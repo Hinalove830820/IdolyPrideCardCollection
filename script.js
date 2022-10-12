@@ -129,10 +129,25 @@ function filter() {
 }
 
 function exportImage() {
-  domtoimage.toBlob(document.getElementById('capture'))
-    .then(function (blob) {
-      window.saveAs(blob, 'my-node.png');
+  let node = document.getElementById('capture');
+  console.log(node)
+  domtoimage.toPng(node)
+    .then(function (dataUrl) {
+      let img = new Image();
+      img.src = dataUrl;
+      document.body.appendChild(img);
+    })
+    .catch(function (error) {
+      console.error('oops, something went wrong!', error);
     });
+
+
+  // domtoimage.toBlob(document.getElementById('capture'))
+  //   .then(function (blob) {
+  //     window.saveAs(blob, 'my-node.png');
+  //   });
+
+
   // html2canvas(document.querySelector("#capture")).then(function (canvas) {
   //   a = document.createElement("a");
   //   a.href = canvas
