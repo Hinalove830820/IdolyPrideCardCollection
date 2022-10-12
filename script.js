@@ -135,6 +135,7 @@ function exportImage() {
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;
+      img.style.border = '3px black solid'
       document.body.appendChild(img);
     })
     .catch(function (error) {
