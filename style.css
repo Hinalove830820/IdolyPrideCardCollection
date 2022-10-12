@@ -1,0 +1,142 @@
+* {
+  font-size: 24px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", "Noto Sans TC", "Noto Sans JP", sans-serif;
+  /* border: 1px solid gray; */
+}
+
+/* 
+div {
+  display: block;
+} */
+
+#filterSection {
+  max-width: 800px;
+  min-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 5px auto;
+  /* border: 1px solid orange; */
+  align-items: center;
+}
+
+#filter {
+  /* border: 1px solid violet; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#filterTitle {
+  max-width: fit-content;
+  min-width: fit-content;
+  margin: 0 10px;
+}
+
+#idolSection {
+  max-width: 800px;
+  min-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  /* flex-direction: row; */
+  margin: 5px auto;
+  /* border: 1px solid green; */
+  align-items: center;
+  padding: 2px;
+  justify-content: center;
+}
+
+.idols {
+  width: 50px;
+  height: 50px;
+  margin: 2px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.idol {
+  border-radius: 50%;
+
+}
+
+#cardSelectSection {
+  width: fit-content;
+  max-width: 800px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 5px;
+  min-height: 500px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+label {
+  background: orange;
+  cursor: pointer;
+  width: 62px;
+  height: 62px;
+  margin: 3px;
+  text-align: center;
+  color: white;
+  display: block;
+  filter: grayscale(100%);
+}
+
+:checked~label {
+  filter: grayscale(0%);
+}
+
+input {
+  display: none
+}
+
+#resultSection {
+  max-width: 800px;
+  min-width: 400px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+
+.results {
+  width: 80%;
+}
+
+.result {
+  margin: 0px auto 10px;
+  display: block;
+  max-width: fit-content;
+}
+
+#export {
+  margin: 10px auto;
+  min-width: fit-content;
+}
+
+#title {
+  margin: 10px auto;
+  display: block;
+  max-width: fit-content;
+}
+
+.pool {
+  height: fit-content;
+  width: fit-content;
+  display: block;
+  min-width: 80px;
+  min-height: 40px;
+  align-content: center;
+  padding: 5px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
