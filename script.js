@@ -97,7 +97,7 @@ function check() {
   fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${fes} / 11 )`;
 
 }
-check()
+
 function filter() {
   let pools = ['normal', 'limited', 'fes', 'special',]
 
@@ -127,15 +127,18 @@ function filter() {
   }
 
 }
-filter()
+
 function exportImage() {
-  check()
-  html2canvas(document.querySelector("#capture")).then(function (canvas) {
-    a = document.createElement("a");
-    a.href = canvas
-      .toDataURL("image/jpeg", 0.92)
-      .replace("image/jpeg", "image/octet-stream");
-    a.download = "image.jpg";
-    a.click();
-  });
+  domtoimage.toBlob(document.getElementById('capture'))
+    .then(function (blob) {
+      window.saveAs(blob, 'my-node.png');
+    });
+  // html2canvas(document.querySelector("#capture")).then(function (canvas) {
+  //   a = document.createElement("a");
+  //   a.href = canvas
+  //     .toDataURL("image/jpeg", 0.92)
+  //     .replace("image/jpeg", "image/octet-stream");
+  //   a.download = "image.jpg";
+  //   a.click();
+  // });
 }
