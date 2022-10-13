@@ -136,7 +136,15 @@ function exportImage() {
   for (pic of oldPics) {
     pic.deleteCell
   }
-  domtoimage.toPng(node)
+  let scale = 3
+  domtoimage.toPng(node, {
+    width: domNode.clientWidth * scale,
+    height: domNode.clientHeight * scale,
+    style: {
+      transform: 'scale(' + scale + ')',
+      transformOrigin: 'top left'
+    }
+  })
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;

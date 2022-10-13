@@ -139,7 +139,8 @@ input {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin: 0 auto 40px;
+  margin: 0 auto;
+  padding: 0 0 40px;
   flex-direction: column;
 }
 
