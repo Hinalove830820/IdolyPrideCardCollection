@@ -11,16 +11,29 @@
 div {
   display: block;
 } */
+@media screen and (min-width: 483px) {
+  #filterSection {
+    max-width: 765px;
+    min-width: 380px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 5px auto;
+    /* border: 1px solid orange; */
+    align-items: center;
+  }
+}
 
-#filterSection {
-  max-width: 800px;
-  min-width: 400px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 5px auto;
-  /* border: 1px solid orange; */
-  align-items: center;
+
+
+@media screen and (max-width: 483px) {
+  #filterSection {
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
 }
 
 #filter {
@@ -36,25 +49,48 @@ div {
 }
 
 #idolSection {
-  max-width: 800px;
-  min-width: 400px;
+  width: fit-content;
+  max-width: 600px;
+  min-width: 380px;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
-  /* flex-direction: row; */
   margin: 5px auto;
-  /* border: 1px solid green; */
   align-items: center;
-  padding: 2px;
+  padding: 2px auto;
   justify-content: center;
 }
 
-.idols {
-  width: 50px;
-  height: 50px;
-  margin: 2px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
+@media screen and (max-width: 448px) {
+  #idolSection {
+    width: fit-content;
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px auto;
+    align-items: center;
+    padding: 2px auto;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 448px) {
+  .idols {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .idols {
+    width: 55px;
+    height: 55px;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+  }
 }
 
 .idol {
@@ -65,23 +101,24 @@ div {
 #cardSelectSection {
   width: fit-content;
   max-width: 800px;
-  min-width: 400px;
-  margin: 0 auto;
-  padding: 5px;
+  min-width: 380px;
+  margin: 5px auto;
+  padding: 5px auto;
   min-height: 500px;
   /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: center;
+
 }
 
 label {
   background: orange;
   cursor: pointer;
-  width: 62px;
-  height: 62px;
-  margin: 3px;
+  width: 65px;
+  height: 65px;
+  margin: 5px;
   text-align: center;
   color: white;
   display: block;
@@ -98,7 +135,7 @@ input {
 
 #resultSection {
   max-width: 800px;
-  min-width: 400px;
+  min-width: 380px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -107,8 +144,8 @@ input {
 }
 
 .results {
-  min-width: 80%;
-  margin: 0 auto
+  width: 100%;
+  margin: 0 auto;
 }
 
 .result {
@@ -124,6 +161,7 @@ input {
 }
 
 #title {
+  height: 62px;
   margin: 10px auto;
   display: block;
   max-width: fit-content;
@@ -134,12 +172,33 @@ input {
   width: fit-content;
   display: block;
   min-width: 80px;
-  min-height: 40px;
+  min-height: 44px;
   align-content: center;
   padding: 5px;
+  margin: 2px
 }
 
 img {
   width: 100%;
   height: 100%;
+}
+
+#titleSection {
+  margin: 20px auto 10px;
+  max-width: 800px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#logo {
+  max-width: 200px;
+}
+
+#title {
+  max-width: fit-content;
+  min-width: 120px;
+  margin: 0;
+  color: rgb(0, 0, 250)
 }

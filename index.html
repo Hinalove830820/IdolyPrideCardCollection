@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>IdolyPride曬卡小工具</title>
+  <title>IDOLYPRIDE曬卡小工具</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="./style.css">
@@ -17,8 +17,12 @@
 
 <body>
   <div id="capture">
-    <div>
-      <p id="title">Idoly Pride 曬卡小工具</p>
+    <div id="titleSection">
+      <a href="https://idolypride.jp/" target="_blank">
+        <img id='logo' src="Logo.png" alt="Idoly Pride">
+      </a>
+
+      <p id="title">曬卡小工具</p>
     </div>
     <div id="filterSection">
       <p id="filterTitle">篩選器</p>
@@ -55,13 +59,13 @@
     </div>
     <div id="resultSection">
       <div class="results">
-        <p class="result" id='totalcards'>0</p>
-        <p class="result" id='normalcards'>0</p>
-        <p class="result" id='limitedcards'>0</p>
-        <p class="result" id='fescards'>0</p>
+        <p class="result" id='totalcards'></p>
+        <p class="result" id='normalcards'></p>
+        <p class="result" id='limitedcards'></p>
+        <p class="result" id='fescards'></p>
       </div>
       <div id="export">
-        <button onclick="exportImage()">儲存為圖片</button>
+        <button onclick="exportImage()">↓曬卡↓</button>
       </div>
 
     </div>

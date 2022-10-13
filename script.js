@@ -130,19 +130,20 @@ function filter() {
 
 function exportImage() {
   let exportButton = document.getElementById('export')
-  exportButton.style.display = 'none'
+  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
   let node = document.getElementById('capture');
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;
+      img.id = 'uesrCards'
       img.style.border = '3px black solid'
       document.body.appendChild(img);
     })
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
     });
-
+  window.location.hash = '#uesrCards'
 
   // domtoimage.toBlob(document.getElementById('capture'))
   //   .then(function (blob) {
