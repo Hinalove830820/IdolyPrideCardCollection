@@ -51,13 +51,13 @@ function check() {
   const normalCardsIhave = document.querySelector("#normalcards")
   const limitedCardsIhave = document.querySelector("#limitedcards")
   const fesCardsIhave = document.querySelector("#fescards")
-  let total = 0
+  let mytotal = 0
   let totalPercent = 0
-  let normal = 0
+  let mynormal = 0
   let normalPercent = 0
-  let limited = 0
+  let mylimited = 0
   let limitedPercent = 0
-  let fes = 0
+  let myfes = 0
   let fesPercent = 0
   let totalcards = document.querySelectorAll(".cards");
   let normalcards = document.querySelectorAll(".cards.normal")
@@ -66,35 +66,35 @@ function check() {
   // 總所持率
   for (let i = 0; i < totalcards.length; i++) {
     if (totalcards[i].checked) {
-      total++;
+      mytotal++;
     }
   }
-  totalPercent = (total / 88 * 100).toFixed(1)
-  cardsIHave.textContent = `五星卡所持率：${totalPercent} % ( ${total} / 88 )`;
+  totalPercent = (mytotal / 88 * 100).toFixed(1)
+  cardsIHave.textContent = `五星卡所持率：${totalPercent} % ( ${mytotal} / 88 )`;
   // 常駐卡所持率
   for (let i = 0; i < normalcards.length; i++) {
     if (normalcards[i].checked) {
-      normal++;
+      mynormal++;
     }
   }
-  normalPercent = (normal / 40 * 100).toFixed(1)
-  normalCardsIhave.textContent = `常駐池所持率：${normalPercent} % ( ${normal} / 40 )`;
+  normalPercent = (mynormal / 40 * 100).toFixed(1)
+  normalCardsIhave.textContent = `常駐池所持率：${normalPercent} % ( ${mynormal} / 40 )`;
   // 限定卡所持率
   for (let i = 0; i < limitedcards.length; i++) {
     if (limitedcards[i].checked) {
-      limited++;
+      mylimited++;
     }
   }
-  limitedPercent = (limited / 32 * 100).toFixed(1)
-  limitedCardsIhave.textContent = `限定池所持率：${limitedPercent} % ( ${limited} / 32 )`;
+  limitedPercent = (mylimited / 33 * 100).toFixed(1)
+  limitedCardsIhave.textContent = `限定池所持率：${limitedPercent} % ( ${mylimited} / 33 )`;
   // FES卡所持率
   for (let i = 0; i < fesCards.length; i++) {
     if (fesCards[i].checked) {
-      fes++;
+      myfes++;
     }
   }
-  fesPercent = (fes / 11 * 100).toFixed(1)
-  fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${fes} / 11 )`;
+  fesPercent = (myfes / 11 * 100).toFixed(1)
+  fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${myfes} / 11 )`;
 
 }
 
@@ -131,8 +131,7 @@ function filter() {
 function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
-  exportButton.innerHTML = ''
-
+  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
@@ -144,9 +143,7 @@ function exportImage() {
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
     });
-  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
-
-  window.location.hash = '#uesrCards'
+  // window.location.hash = '#uesrCards'
 
   // domtoimage.toBlob(document.getElementById('capture'))
   //   .then(function (blob) {
