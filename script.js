@@ -131,7 +131,8 @@ function filter() {
 function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
-  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
+  exportButton.innerHTML = '<button onclick="exportImage()">曬卡中</button>'
+
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
@@ -144,6 +145,7 @@ function exportImage() {
       console.error('oops, something went wrong!', error);
     });
   window.location.hash = '#end'
+  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
 
   // domtoimage.toBlob(document.getElementById('capture'))
   //   .then(function (blob) {
