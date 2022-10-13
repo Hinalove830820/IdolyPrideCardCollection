@@ -131,7 +131,7 @@ function filter() {
 function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
-  exportButton.innerHTML = '<button onclick="exportImage()">曬卡中</button>'
+  exportButton.innerHTML = '<button onclick="exportImage()">...曬卡中...</button>'
   let oldPics = document.getElementById('uesrCards')
   oldPics.deleteCell()
   let scale = 3
