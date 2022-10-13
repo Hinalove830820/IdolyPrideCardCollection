@@ -139,7 +139,7 @@ input {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   flex-direction: column;
 }
 
@@ -209,4 +209,10 @@ button {
   border: 0px;
   color: aliceblue;
   background-color: blue;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0);
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: orange;
 }

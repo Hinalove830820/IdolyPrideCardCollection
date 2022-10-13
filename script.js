@@ -132,14 +132,18 @@ function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
   exportButton.innerHTML = '<button onclick="exportImage()">曬卡中</button>'
-
+  let oldPics = document.getElementsByClassName('uesrCards')
+  for (pic of oldPics) {
+    pic.deleteCell
+  }
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;
-      img.id = 'uesrCards'
+      img.class = 'uesrCards'
       img.style.border = '3px black solid'
       document.body.appendChild(img);
+
     })
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
