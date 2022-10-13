@@ -143,7 +143,7 @@ function exportImage() {
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
     });
-  // window.location.hash = '#uesrCards'
+  window.location.hash = '#end'
 
   // domtoimage.toBlob(document.getElementById('capture'))
   //   .then(function (blob) {
