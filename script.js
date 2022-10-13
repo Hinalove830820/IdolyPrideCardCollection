@@ -1,5 +1,5 @@
-// 建立偶像篩選器控件
-const idolSector = document.querySelector('#idolSection')
+// 全域參數放在這裡
+// 偶像名稱
 const idols = [
   'mana',
   'kotono', 'nagisa', 'saki', 'suzu', 'mei',
@@ -9,12 +9,7 @@ const idols = [
   'fran', 'kana', 'miho',
   'miku'
 ]
-for (i = 0; i < idols.length; i++) {
-  idolSector.innerHTML += `<div><input type="checkbox" id=${idols[i]} class="avatar" onclick="filter()" checked><label for=${idols[i]} class="idols"><img class="idol" id=${idols[i]} src="avatar/${idols[i]}.png" alt=""></label></div>`
-}
-
-// 建立卡池篩選器控件
-const cardSector = document.querySelector('#cardSelectSection')
+// 卡片名稱 'name-no-pool.webp'
 const cardPaths = [
   'mana-01-fes.webp', 'mana-02-fes.webp', 'mana-03-special.webp',
   'kotono-01-normal.webp', 'kotono-02-limited.webp', 'kotono-03-fes.webp', 'kotono-04-limited.webp', 'kotono-05-limited.webp', 'kotono-06-special.webp',
@@ -39,13 +34,26 @@ const cardPaths = [
   'miho-01-fes.webp',
   'miku-01-special.webp',
 ]
-for (i = 0; i < cardPaths.length; i++) {
-  let tags = cardPaths[i].split("-")
-  tags[2] = tags[2].split('.')[0]
-  cardSector.innerHTML += `<div><input type="checkbox" id=${tags[0] + tags[1]} class="${'cards ' + tags[0] + ' ' + tags[2]}" onclick='check()' unchecked>  <label for=${tags[0] + tags[1]} class="${'img ' + tags[0] + ' ' + tags[2]}"><img id=${tags[0] + tags[1]} src=${'cards/' + cardPaths[i]} alt=""></label></div>`
-}
+// 載入控件
+function loadWidget() {
+  // 建立偶像篩選器控件
+  const idolSector = document.querySelector('#idolSection')
+  for (i = 0; i < idols.length; i++) {
+    idolSector.innerHTML += `<div><input type="checkbox" id=${idols[i]} class="avatar" onclick="filter()" checked><label for=${idols[i]} class="idols"><img class="idol" id=${idols[i]} src="avatar/${idols[i]}.png" alt=""></label></div>`
+  }
+  // 建立卡池篩選器控件
+  const cardSector = document.querySelector('#cardSelectSection')
+  for (i = 0; i < cardPaths.length; i++) {
+    let tags = cardPaths[i].split("-")
+    tags[2] = tags[2].split('.')[0]
+    cardSector.innerHTML += `<div><input type="checkbox" id=${tags[0] + tags[1]} class="${'cards ' + tags[0] + ' ' + tags[2]}" onclick='check()' unchecked>  <label for=${tags[0] + tags[1]} class="${'img ' + tags[0] + ' ' + tags[2]}"><img id=${tags[0] + tags[1]} src=${'cards/' + cardPaths[i]} alt=""></label></div>`
+  }
 
-// 建立卡片選擇行為與結果計算
+}
+// 執行載入控件
+loadWidget()
+
+// 按下卡片時 計數並結算持有率
 function check() {
   const cardsIHave = document.querySelector("#totalcards")
   const normalCardsIhave = document.querySelector("#normalcards")
@@ -98,6 +106,7 @@ function check() {
 
 }
 
+// 按下篩選器時 未選到的種類卡片透明化
 function filter() {
   let pools = ['normal', 'limited', 'fes', 'special',]
 
@@ -128,58 +137,32 @@ function filter() {
 
 }
 
+//按下「曬卡」後，產生一張高清曬卡圖
 function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
   exportButton.innerHTML = '<button onclick="exportImage()">...曬卡中...</button>'
-  try {
-    let oldImg = document.getElementById('uesrCards')
-    document.body.removeChild(oldImg)
-  } catch (e) {
-    console.log(e)
-  }
-
+  // 清掉舊圖
+  let oldImg = document.getElementById('uesrCards')
+  document.body.removeChild(oldImg)
+  // 產生曬卡圖
   let scale = 3
-  try {
-    domtoimage.toPng(node, {
-      width: node.clientWidth * scale,
-      height: node.clientHeight * scale,
-      style: {
-        transform: 'scale(' + scale + ')',
-        transformOrigin: 'top left'
-      }
+  domtoimage.toPng(node, {
+    width: node.clientWidth * scale,
+    height: node.clientHeight * scale,
+    style: {
+      transform: 'scale(' + scale + ')',
+      transformOrigin: 'top left'
+    }
+  })
+    .then(function (dataUrl) {
+      let img = new Image();
+      img.src = dataUrl;
+      img.id = 'uesrCards'
+      document.body.appendChild(img);
     })
-      .then(function (dataUrl) {
-        let img = new Image();
-        img.src = dataUrl;
-        img.id = 'uesrCards'
-        img.style.border = '3px black solid'
-        document.body.appendChild(img);
-
-      })
-      .catch(function (error) {
-        console.error('oops, something went wrong!', error);
-      });
-  } catch (e) {
-    console.log(e)
-
-  }
-
-  window.location.hash = '#end'
+    .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+    });
   exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
-
-  // domtoimage.toBlob(document.getElementById('capture'))
-  //   .then(function (blob) {
-  //     window.saveAs(blob, 'my-node.png');
-  //   });
-
-
-  // html2canvas(document.querySelector("#capture")).then(function (canvas) {
-  //   a = document.createElement("a");
-  //   a.href = canvas
-  //     .toDataURL("image/jpeg", 0.92)
-  //     .replace("image/jpeg", "image/octet-stream");
-  //   a.download = "image.jpg";
-  //   a.click();
-  // });
 }
