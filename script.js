@@ -133,8 +133,8 @@ function exportImage() {
   let node = document.getElementById('capture');
   exportButton.innerHTML = '<button onclick="exportImage()">...曬卡中...</button>'
   try {
-    let oldPics = document.getElementById('uesrCards')
-    oldPics.deleteCell()
+    let oldImg = document.getElementById('uesrCards')
+    document.body.removeChild(oldImg)
   } catch (e) {
     console.log(e)
   }
