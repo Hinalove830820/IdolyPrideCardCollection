@@ -132,10 +132,8 @@ function exportImage() {
   let exportButton = document.getElementById('export')
   let node = document.getElementById('capture');
   exportButton.innerHTML = '<button onclick="exportImage()">曬卡中</button>'
-  let oldPics = document.getElementsByClassName('uesrCards')
-  for (pic of oldPics) {
-    pic.deleteCell
-  }
+  let oldPics = document.getElementById('uesrCards')
+  oldPics.deleteCell()
   let scale = 3
   domtoimage.toPng(node, {
     width: domNode.clientWidth * scale,
@@ -148,7 +146,7 @@ function exportImage() {
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;
-      img.class = 'uesrCards'
+      img.id = 'uesrCards'
       img.style.border = '3px black solid'
       document.body.appendChild(img);
 
