@@ -170,10 +170,12 @@ input {
 .pool {
   height: fit-content;
   width: fit-content;
-  display: block;
   min-width: 80px;
   min-height: 44px;
+  display: flex;
   align-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 5px;
   margin: 2px
 }
