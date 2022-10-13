@@ -140,25 +140,31 @@ function exportImage() {
   }
 
   let scale = 3
-  domtoimage.toPng(node, {
-    width: domNode.clientWidth * scale,
-    height: domNode.clientHeight * scale,
-    style: {
-      transform: 'scale(' + scale + ')',
-      transformOrigin: 'top left'
-    }
-  })
-    .then(function (dataUrl) {
-      let img = new Image();
-      img.src = dataUrl;
-      img.id = 'uesrCards'
-      img.style.border = '3px black solid'
-      document.body.appendChild(img);
-
+  try {
+    domtoimage.toPng(node, {
+      width: node.clientWidth * scale,
+      height: node.clientHeight * scale,
+      style: {
+        transform: 'scale(' + scale + ')',
+        transformOrigin: 'top left'
+      }
     })
-    .catch(function (error) {
-      console.error('oops, something went wrong!', error);
-    });
+      .then(function (dataUrl) {
+        let img = new Image();
+        img.src = dataUrl;
+        img.id = 'uesrCards'
+        img.style.border = '3px black solid'
+        document.body.appendChild(img);
+
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
+  } catch (e) {
+    console.log(e)
+
+  }
+
   window.location.hash = '#end'
   exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
 
