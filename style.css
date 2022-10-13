@@ -218,3 +218,10 @@ button {
 button:hover {
   background-color: orange;
 }
+
+#exportExplaination {
+  font-size: 16px;
+  color: grey;
+  width: fit-content;
+  margin: 5px auto;
+}
