@@ -25,10 +25,9 @@ div {
   }
 }
 
-
-
 @media screen and (max-width: 483px) {
   #filterSection {
+    min-width: 380px;
     margin: 5px auto;
     display: flex;
     flex-direction: column;
@@ -224,4 +223,10 @@ button:hover {
   color: grey;
   width: fit-content;
   margin: 5px auto;
+}
+
+#capture {
+  padding-top: 20px;
+  max-width: 802px;
+  margin: 0 auto;
 }

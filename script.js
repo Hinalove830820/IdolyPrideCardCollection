@@ -147,14 +147,18 @@ function exportImage() {
   document.body.removeChild(oldImg)
   // 產生曬卡圖
   let scale = 3
-  domtoimage.toPng(node, {
-    width: node.clientWidth * scale,
-    height: node.clientHeight * scale,
-    style: {
-      transform: 'scale(' + scale + ')',
-      transformOrigin: 'top left'
-    }
-  })
+  domtoimage.toPng(node
+    //// 這邊有點問題，會導致手機板無法在新分頁開圖和直接下載
+    //// 而且用分享選項得到的圖片還是沒有變大 哭啊
+    //   , {
+    //   width: node.clientWidth * scale,
+    //   height: node.clientHeight * scale,
+    //   style: {
+    //     transform: 'scale(' + scale + ')',
+    //     transformOrigin: 'top left'
+    //   }
+    // }
+  )
     .then(function (dataUrl) {
       let img = new Image();
       img.src = dataUrl;
