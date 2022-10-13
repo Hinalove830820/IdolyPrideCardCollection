@@ -130,8 +130,9 @@ function filter() {
 
 function exportImage() {
   let exportButton = document.getElementById('export')
-  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
   let node = document.getElementById('capture');
+  exportButton.innerHTML = ''
+
   domtoimage.toPng(node)
     .then(function (dataUrl) {
       let img = new Image();
@@ -143,6 +144,8 @@ function exportImage() {
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
     });
+  exportButton.innerHTML = '<button onclick="exportImage()">↓重新曬卡↓</button>'
+
   window.location.hash = '#uesrCards'
 
   // domtoimage.toBlob(document.getElementById('capture'))
