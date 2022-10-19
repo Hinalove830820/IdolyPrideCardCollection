@@ -77,32 +77,32 @@ function check() {
       mytotal++;
     }
   }
-  totalPercent = (mytotal / 88 * 100).toFixed(1)
-  cardsIHave.textContent = `五星卡所持率：${totalPercent} % ( ${mytotal} / 88 )`;
+  totalPercent = (mytotal / totalcards.length * 100).toFixed(1)
+  cardsIHave.textContent = `五星卡所持率：${totalPercent} % ( ${mytotal} / ${totalcards.length} )`;
   // 常駐卡所持率
   for (let i = 0; i < normalcards.length; i++) {
     if (normalcards[i].checked) {
       mynormal++;
     }
   }
-  normalPercent = (mynormal / 40 * 100).toFixed(1)
-  normalCardsIhave.textContent = `常駐池所持率：${normalPercent} % ( ${mynormal} / 40 )`;
+  normalPercent = (mynormal / normalcards.length * 100).toFixed(1)
+  normalCardsIhave.textContent = `常駐池所持率：${normalPercent} % ( ${mynormal} / ${normalcards.length} )`;
   // 限定卡所持率
   for (let i = 0; i < limitedcards.length; i++) {
     if (limitedcards[i].checked) {
       mylimited++;
     }
   }
-  limitedPercent = (mylimited / 33 * 100).toFixed(1)
-  limitedCardsIhave.textContent = `限定池所持率：${limitedPercent} % ( ${mylimited} / 33 )`;
+  limitedPercent = (mylimited / limitedcards.length * 100).toFixed(1)
+  limitedCardsIhave.textContent = `限定池所持率：${limitedPercent} % ( ${mylimited} / ${limitedcards.length} )`;
   // FES卡所持率
   for (let i = 0; i < fesCards.length; i++) {
     if (fesCards[i].checked) {
       myfes++;
     }
   }
-  fesPercent = (myfes / 11 * 100).toFixed(1)
-  fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${myfes} / 11 )`;
+  fesPercent = (myfes / fesCards.length * 100).toFixed(1)
+  fesCardsIhave.textContent = `FES池所持率：${fesPercent} % ( ${myfes} / ${fesCards.length} )`;
 
 }
 
