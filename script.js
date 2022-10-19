@@ -19,7 +19,7 @@ const cardPaths = [
   'mei-01-normal.webp', 'mei-02-limited.webp', 'mei-03-limited.webp', 'mei-04-fes.webp', 'mei-05-normal.webp',
   'sakura-01-normal.webp', 'sakura-02-fes.webp', 'sakura-03-limited.webp', 'sakura-04-limited.webp',
   'sizuku-01-normal.webp', 'sizuku-02-normal.webp', 'sizuku-03-limited.webp', 'sizuku-04-normal.webp',
-  'chisa-01-normal.webp', 'chisa-02-limited.webp', 'chisa-03-normal.webp', 'chisa-04-limited.webp',
+  'chisa-01-normal.webp', 'chisa-02-limited.webp', 'chisa-03-normal.webp', 'chisa-04-limited.webp', 'chisa-05-normal.webp',
   'rei-01-normal.webp', 'rei-02-normal.webp', 'rei-03-limited.webp', 'rei-04-normal.webp', 'rei-05-limited.webp',
   'haruko-01-normal.webp', 'haruko-02-limited.webp', 'haruko-03-limited.webp', 'haruko-04-normal.webp', 'haruko-05-limited.webp',
   'rui-01-normal.webp', 'rui-02-normal.webp', 'rui-03-limited.webp', 'rui-04-normal.webp', 'rui-05-special.webp',
