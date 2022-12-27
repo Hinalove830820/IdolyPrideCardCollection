@@ -157,7 +157,7 @@
   .card {
     position: relative;
     display: inline-block;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
 
     width: 70px;
     height: 70px;
