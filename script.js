@@ -230,8 +230,6 @@ function applyFilter() {
     }
   })
   renderCards()
-  test()
-
 }
 
 function renderCards() {
@@ -318,6 +316,12 @@ document.querySelector('#save').addEventListener('click', (event) => {
   document.querySelector('#alert').toggleAttribute('show')
   document.querySelector("#bottom-navigator ").style.position = 'absolute'
   document.querySelector("#bottom-navigator ").style.bottom = '-100vh'
+
+  document.querySelectorAll('.filter').forEach((filter) => {
+    filter.dataset.select = true
+  })
+  applyFilter()
+
   const capture = document.querySelector('#capture')
   let scale = 6
   domtoimage.toPng(capture, {
@@ -342,10 +346,4 @@ document.querySelector('#save').addEventListener('click', (event) => {
 
 })
 
-function test() {
-  playerCards.forEach((card) => {
-    if ((card.job !== 'supporter') && (card.job !== 'scorer') && (card.job !== 'buffer')) {
-      console.log(card)
-    }
-  })
-}
+
