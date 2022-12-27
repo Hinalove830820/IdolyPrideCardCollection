@@ -222,8 +222,8 @@
         "version": "05",
         "pool": "normal",
         "name": "サンライト照らす眼差し",
-        "job": "scorer",
-        "type": "vocal",
+        "job": "supporter",
+        "type": "visual",
         "release": "20220819",
         "own": false
     },
@@ -404,7 +404,8 @@
         "name": "笑う門には福来るだよ！",
         "job": "supporter",
         "release": "20220103",
-        "own": false
+        "own": false,
+        "type": "vocal"
     },
     {
         "id": "34",
@@ -930,7 +931,7 @@
         "pool": "limited",
         "name": "おかしな気分は君のせい",
         "job": "scorer",
-        "type": "visual",
+        "type": "dance",
         "release": "20220212",
         "own": false
     },
@@ -942,7 +943,7 @@
         "pool": "normal",
         "name": "君と結ぶ夏の約束",
         "job": "scorer",
-        "type": "dance",
+        "type": "visual",
         "release": "20220731",
         "own": false
     },
@@ -978,7 +979,7 @@
         "pool": "limited",
         "name": "ちょこ～っとバレンタイン",
         "job": "supporter",
-        "type": "dance",
+        "type": "vocal",
         "release": "20220131",
         "own": false
     },
@@ -1002,7 +1003,7 @@
         "pool": "limited",
         "name": "ネオン煌めくナイトプール",
         "job": "supporter",
-        "type": "vocal",
+        "type": "dance",
         "release": "20220731",
         "own": false
     },
@@ -1085,7 +1086,7 @@
         "version": "01",
         "pool": "fes",
         "name": "a piece of cake",
-        "job": "scorer",
+        "job": "supporter",
         "type": "dance",
         "release": "20220628",
         "own": false

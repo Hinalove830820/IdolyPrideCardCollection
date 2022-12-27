@@ -1,80 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <title>IDOLYPRIDE曬卡小工具</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <title>IDOLYPRIDE曬卡小工具V2.0</title>
 
-  <script src="./script.js" async></script>
-  <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js" async></script> -->
-  <script src="dom-to-image.js" async></script>
+  <script>
+    var sys = "";
+
+    sys = (navigator.language || navigator.userLanguage || navigator.browserLanguage || navigator.systemLanguage).toLowerCase();
+
+
+
+  </script>
+
+  <link rel="stylesheet" href="./resource/fontawesome-free-6.2.1-web\css\all.css">
+
+  <link rel="stylesheet" href="./style.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&family=Noto+Sans+TC:wght@100;300;400;500;700&family=Noto+Sans:wght@100;300;400;500;700&display=swap');
   </style>
 </head>
 
 <body>
-  <div id="capture">
-    <div id="titleSection">
-      <a href="https://idolypride.jp/" target="_blank">
+  <div id="smart-phone">
+
+    <!-- 要截圖的都要放進來 -->
+    <div id="capture">
+      <!-- 上方固定欄 -->
+      <div class="container" id="navigator">
         <img id='logo' src="Logo.png" alt="Idoly Pride">
-      </a>
+        <p id="title"></p>
 
-      <p id="title">曬卡小工具</p>
-    </div>
-    <div id="filterSection">
-      <p id="filterTitle">篩選器</p>
-      <form action="" id="filter">
-        <div>
-          <input type="checkbox" id="normal" class='pools' onclick='filter()' checked>
-          <label for="normal" class="pool">
-            常駐池
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" id="limited" class='pools' onclick='filter()' checked>
-          <label for="limited" class="pool">
-            限定池
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" id="fes" class='pools' onclick='filter()' checked>
-          <label for="fes" class="pool">
-            Fes池
-          </label>
-        </div>
-        <div>
-          <input type="checkbox" id="special" class='pools' onclick='filter()' checked>
-          <label for="special" class="pool">
-            Special
-          </label>
-        </div>
-      </form>
-    </div>
-    <div id="idolSection">
-    </div>
-    <div id="cardSelectSection">
-    </div>
-    <div id="resultSection">
-      <div class="results">
-        <p class="result" id='totalcards'></p>
-        <p class="result" id='normalcards'></p>
-        <p class="result" id='limitedcards'></p>
-        <p class="result" id='fescards'></p>
       </div>
+      <div class="container" id="blocker">
+        <!--空的 卡位用 -->
+      </div>
+      <!-- 中間滑動欄 -->
+      <div class="container" id="slide-top">
+        <div id="select-all">
+
+        </div>
+        <div id="sorter" sort="3">
+
+        </div>
+        <div id="language">
+          JP
+        </div>
+      </div>
+      <div class="container" id="card-container">
+
+      </div>
+      <!-- 底部曬卡欄 -->
+      <div class="container" id="bottom-navigator">
+        <div id="dashboard-title">
+          <p id="player"></p>
+          <p id="five-stars-own"></p>
+        </div>
+        <div id="percentages">
+          <div class="result">
+            <p id="normal-percentage-label"></p>
+            <p class="percentage" data-pool="normal">100%</p>
+          </div>
+          <div class="result">
+            <p id="limited-percentage-label"></p>
+            <p class="percentage" data-pool="limited">100%</p>
+          </div>
+          <div class="empty">　　</div>
+          <div class="result">
+            <p id="fes-percentage-label"></p>
+            <p class="percentage" data-pool="fes">100%</p>
+          </div>
+          <div class="result">
+            <p id="all-percentage-label"></p>
+            <p class="percentage" data-pool="all">100%</p>
+          </div>
+          <div class="empty">　　</div>
+        </div>
+
+
+      </div>
+
     </div>
+    <!-- 篩選器按鈕 -->
+    <div id="filter-button" data-show='false'>
+      <p id="filter-label">ﾌｨﾙﾀ</p>
+    </div>
+    <!-- 下方按鈕 -->
+    <div class="user-action" id="save">
+      <p>SAVE</p>
+    </div>
+    <!-- <div class="user-action" id="share">
+        <p>SHARE</p>
+      </div> -->
+    <!-- modal -->
+    <div id="modal" data-show='false'>
+
+      <div id="modal-header">
+        <div id="filter-all" show>
+          Clear Idols
+        </div>
+      </div>
+      <div class="container-1" id="idol-selector">
+        <div class="group" id="sunny">
+          <div class="group-logo" data-group="sunny" show><img src="avatar\group_sunny.jpg" alt=""></div>
+          <div class="idol-avatar filter sunny" data-key='idol' data-value='sakura'><img data-key='idol'
+              data-value='sakura' src="avatar\sakura.png" alt=""></div>
+          <div class="idol-avatar filter sunny" data-key='idol' data-value='sizuku'><img data-key='idol'
+              data-value='sizuku' src="avatar\sizuku.png" alt=""></div>
+          <div class="idol-avatar filter sunny" data-key='idol' data-value='chisa'><img data-key='idol'
+              data-value='chisa' src="avatar\chisa.png" alt=""></div>
+          <div class="idol-avatar filter sunny" data-key='idol' data-value='rei'><img data-key='idol' data-value='rei'
+              src="avatar\rei.png" alt=""></div>
+          <div class="idol-avatar filter sunny" data-key='idol' data-value='haruko'><img data-key='idol'
+              data-value='haruko' src="avatar\haruko.png" alt=""></div>
+        </div>
+        <div class="group" id="tsuki">
+          <div class="group-logo" data-group="tsuki" show><img src="avatar\group_tsuki.jpg" alt=""></div>
+          <div class="idol-avatar filter tsuki" data-key='idol' data-value='kotono'><img data-key='idol'
+              data-value='kotono' src="avatar\kotono.png" alt=""></div>
+          <div class="idol-avatar filter tsuki" data-key='idol' data-value='nagisa'><img data-key='idol'
+              data-value='nagisa' src="avatar\nagisa.png" alt=""></div>
+          <div class="idol-avatar filter tsuki" data-key='idol' data-value='saki'><img data-key='idol' data-value='saki'
+              src="avatar\saki.png" alt=""></div>
+          <div class="idol-avatar filter tsuki" data-key='idol' data-value='suzu'><img data-key='idol' data-value='suzu'
+              src="avatar\suzu.png" alt=""></div>
+          <div class="idol-avatar filter tsuki" data-key='idol' data-value='mei'><img data-key='idol' data-value='mei'
+              src="avatar\mei.png" alt=""></div>
+        </div>
+        <div class="group" id="liznoir">
+          <div class="group-logo" data-group="liznoir" show><img src="avatar\group_liznoir.jpg" alt=""></div>
+          <div class="idol-avatar filter liznoir" data-key='idol' data-value='rio'><img data-key='idol' data-value='rio'
+              src="avatar\rio.png" alt=""></div>
+          <div class="idol-avatar filter liznoir" data-key='idol' data-value='aoi'><img data-key='idol' data-value='aoi'
+              src="avatar\aoi.png" alt=""></div>
+          <div class="idol-avatar filter liznoir" data-key='idol' data-value='ai'><img data-key='idol' data-value='ai'
+              src="avatar\ai.png" alt=""></div>
+          <div class="idol-avatar filter liznoir" data-key='idol' data-value='kokoro'><img data-key='idol'
+              data-value='kokoro' src="avatar\kokoro.png" alt=""></div>
+        </div>
+        <div class="group" id="trinityaile">
+          <div class="group-logo" data-group="trinityaile" show><img src="avatar\group_trinityaile.jpg" alt=""></div>
+          <div class="idol-avatar filter trinityaile" data-key='idol' data-value='rui'><img data-key='idol'
+              data-value='rui' src="avatar\rui.png" alt=""></div>
+          <div class="idol-avatar filter trinityaile" data-key='idol' data-value='yuu'><img data-key='idol'
+              data-value='yuu' src="avatar\yuu.png" alt=""></div>
+          <div class="idol-avatar filter trinityaile" data-key='idol' data-value='sumire'><img data-key='idol'
+              data-value='sumire' src="avatar\sumire.png" alt=""></div>
+        </div>
+        <div class="group sp " id="mana">
+          <div class="idol-avatar filter" data-key='idol' data-value='mana'><img data-key='idol' data-value='mana'
+              src="avatar\mana.png" alt=""></div>
+        </div>
+        <div class="group" id="iiix">
+          <div class="group-logo" data-group="iiix" show><img src="avatar\group_IIIX.jpg" alt=""></div>
+          <div class="idol-avatar filter iiix" data-key='idol' data-value='fran'><img data-key='idol' data-value='fran'
+              src="avatar\Fran.png" alt=""></div>
+          <div class="idol-avatar filter iiix" data-key='idol' data-value='kana'><img data-key='idol' data-value='kana'
+              src="avatar\Kana.png" alt=""></div>
+          <div class="idol-avatar filter iiix" data-key='idol' data-value='miho'><img data-key='idol' data-value='miho'
+              src="avatar\Miho.png" alt=""></div>
+        </div>
+        <div class="group sp" id="other">
+          <div class="idol-avatar filter" data-key='idol' data-value='miku'><img data-key='idol' data-value='miku'
+              src="avatar\miku.png" alt=""></div>
+        </div>
+      </div>
+      <div class="container-2" id="pool-selector">
+        <div class="pool filter" id="normal" data-key='pool' data-value='normal'>
+          <p data-key='pool' data-value='normal'>通常ｶﾞﾁｬ</p>
+        </div>
+        <div class="pool filter" id="limited" data-key='pool' data-value='limited'>
+          <p data-key='pool' data-value='limited'>限定ｶﾞﾁｬ</p>
+        </div>
+        <div class="pool filter" id="fes" data-key='pool' data-value='fes'>
+          <p data-key='pool' data-value='fes'>ﾌｪｽｶﾞﾁｬ</p>
+        </div>
+        <div class="pool filter" id="special" data-key='pool' data-value='special'>
+          <p data-key='pool' data-value='special'>ｽﾍﾟｼｬﾙ</p>
+        </div>
+
+      </div>
+      <div class="container-3" id="type-selector">
+        <div class="type filter" id="vocal" data-key='type' data-value='vocal'>
+          <p data-key='type' data-value='vocal' id="vocal-label">Vocal</p>
+        </div>
+        <div class="type filter" id="dance" data-key='type' data-value='dance'>
+          <p data-key='type' data-value='dance' id="dance-label">Dance</p>
+        </div>
+        <div class="type filter" id="visual" data-key='type' data-value='visual'>
+          <p data-key='type' data-value='visual' id="visual-label">Visual</p>
+        </div>
+      </div>
+      <div class="container-3" id="job-selector">
+        <div class="job filter" id="scorer" data-key='job' data-value='scorer'>
+          <p data-key='job' data-value='scorer' id="scorer-label">ｽｺｱﾗｰ</p>
+        </div>
+        <div class="job filter" id="buffer" data-key='job' data-value='buffer'>
+          <p data-key='job' data-value='buffer' id="buffer-label">ﾊﾞｯﾌｧｰ</p>
+        </div>
+        <div class="job filter" id="supporter" data-key='job' data-value='supporter'>
+          <p data-key='job' data-value='supporter' id="supporter-label">ｻﾎﾟｰﾀｰ</p>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+    <!-- 使用者輸入名字 -->
+
+    <form id="name">
+      <input placeholder="お名前を入力する" type="text" id="name-input">
+      <button id="name-submit">提出</button>
+    </form>
+
+    <div id="alert">
+      <p id="alert-1">...圖片產製中...</p>
+      <p id="alert-2">預計花費數秒至數十秒</p>
+      <p id="alert-3">請耐心等候並不要滑動</p>
+    </div>
+
+    <div id="test"><a href="" download>Test</a></div>
+
   </div>
 
-  <div id="export">
-    <button id="showMyCard" onclick="exportImage()">↓曬卡↓</button>
-  </div>
-  <p id="exportExplaination">製作完成的圖片會新增在下方</p>
-  <div id='uesrCards'></div>
 
+  <!-- 顯示語言 -->
+  <script>
+    let LanguageArray = [];
 
+    if (sys === "zh-tw" || sys === "zh-cn" || sys === "zh-hk" || sys === "zh-sg" || sys === "zh") {
+      let language = 'ch';
+    } else {
+      let language = 'jp';
+    }
 
+  </script>
+
+  <!-- 截圖套件 -->
+  <script src="dom-to-image.js"></script>
+  <!-- 主要JS -->
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>
