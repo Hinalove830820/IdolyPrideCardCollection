@@ -15,7 +15,7 @@
   #capture {
     display: relative;
     width: 100vw;
-    height: 1750px;
+    height: fit-content;
     background-color: rgb(255, 250, 213)
   }
 
@@ -157,9 +157,11 @@
   .card {
     position: relative;
     display: inline-block;
+    padding-bottom: 5px;
 
     width: 70px;
     height: 70px;
+
   }
 
   .fa-circle-check {
@@ -187,6 +189,10 @@
     display: none;
   }
 
+  #slide-bottom {
+    height: 50px;
+  }
+
   /* 下方結果欄 */
   #bottom-navigator {
     z-index: 2;
@@ -205,6 +211,11 @@
 
   }
 
+  #bottom-navigator .emptydiv {
+    border: red 1px solid;
+    height: 50px;
+  }
+
   #dashboard-title {
     font-size: 26px;
     width: 95%;
@@ -220,7 +231,7 @@
   #percentages {
     width: 95%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 
@@ -525,17 +536,5 @@
     color: white;
     font-size: 28px;
   }
-
-  /* #test {
-
-    height: 100px;
-    width: 100px;
-    border: 1px red solid;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    font-size: 50px;
-  } */
 
 }

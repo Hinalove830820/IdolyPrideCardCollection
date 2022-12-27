@@ -180,24 +180,17 @@ selectAllButton.addEventListener('click', (event) => {
     selectAllButton.innerText = event.target.hasAttribute('own') ? '全部取消' : '全部選擇'
   } else {
     selectAllButton.innerText = event.target.hasAttribute('own') ? '全取り消す' : '全選択する'
-
   }
   cardsToRender.forEach((card) => {
-
     card.own = own
     playerCards[card.id].own = own
   })
   renderCards()
   renderResults()
-
-
 })
 
 languageSelectButton.addEventListener('click', (event) => {
-
   event.target.innerText = event.target.hasAttribute('jp') ? 'CN' : 'JP'
-
-
   useLanguage(event.target.innerText)
   event.target.toggleAttribute('jp')
 })
@@ -249,7 +242,6 @@ function renderResults() {
   resultArray.forEach((percentage) => {
     percentage.innerHTML = `${calcPlayerOwn(percentage.dataset.pool)}%`
   })
-
 }
 
 function renderName(name) {
@@ -257,7 +249,6 @@ function renderName(name) {
 }
 
 function useLanguage(language) {
-
   if (language === 'CN') {
     languageToUse = 'cn'
   } else if (language === 'JP') {
@@ -292,7 +283,6 @@ function useLanguage(language) {
   document.querySelector('#alert-1').innerHTML = languageArrayToUse[15]
   document.querySelector('#alert-2').innerHTML = languageArrayToUse[16]
   document.querySelector('#alert-3').innerHTML = languageArrayToUse[17]
-
 }
 
 function calcPlayerOwn(pool) {
@@ -302,7 +292,6 @@ function calcPlayerOwn(pool) {
   else {
     return Math.round(playerCards.filter(card => ((card.own === true) && (card.pool === pool))).length / playerCards.filter(card => (card.pool === pool)).length * 100)
   }
-
 }
 
 function toggleOwn(id) {
@@ -314,16 +303,20 @@ function toggleOwn(id) {
 
 document.querySelector('#save').addEventListener('click', (event) => {
   document.querySelector('#alert').toggleAttribute('show')
-  document.querySelector("#bottom-navigator ").style.position = 'absolute'
-  document.querySelector("#bottom-navigator ").style.bottom = '-100vh'
-
+  document.querySelector("#bottom-navigator ").style.position = 'relative'
+  document.querySelector("#slide-bottom ").style.display = 'none'
+  document.querySelectorAll('.blank').forEach((node) => {
+    node.style.display = 'none'
+  })
+  document.querySelectorAll('.result').forEach((node) => {
+    node.style.fontSize = '26px'
+  })
   document.querySelectorAll('.filter').forEach((filter) => {
     filter.dataset.select = true
   })
   applyFilter()
-
   const capture = document.querySelector('#capture')
-  let scale = 6
+  let scale = 8
   domtoimage.toPng(capture, {
     width: capture.clientWidth * scale,
     height: capture.clientHeight * scale,
@@ -334,16 +327,13 @@ document.querySelector('#save').addEventListener('click', (event) => {
   })
     .then(function (dataUrl) {
       let fakeBtn = document.querySelector('#test')
-      fakeBtn.innerHTML = `
-        <a id="download" href="${dataUrl}" download>DOWNLOAD</a>
-      `
+      fakeBtn.innerHTML = `<a id="download" href="${dataUrl}" download>DOWNLOAD</a>`
     })
     .then(() => {
       document.querySelector('#download').click()
       window.location.reload()
       window.alert('Thank You for Waiting!')
     })
-
 })
 
 
