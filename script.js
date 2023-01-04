@@ -79,9 +79,7 @@ sorter.addEventListener('click', (event) => {
   }
   sorter.innerText = sortingRule[sortingRuleIndex]
   renderCards()
-
-
-
+  localSave()
 })
 
 player.addEventListener('click', (event) => {
@@ -175,15 +173,19 @@ filterAllButton.addEventListener('click', (event) => {
 
 selectAllButton.addEventListener('click', (event) => {
   event.target.toggleAttribute('own')
-  let own = event.target.hasAttribute('own')
+  let ownOrNot = event.target.hasAttribute('own')
   if (languageToUse === 'cn') {
     selectAllButton.innerText = event.target.hasAttribute('own') ? '全部取消' : '全部選擇'
   } else {
     selectAllButton.innerText = event.target.hasAttribute('own') ? '全取り消す' : '全選択する'
   }
-  cardsToRender.forEach((card) => {
-    card.own = own
-    playerCards[card.id].own = own
+  cardsToRender.forEach((c) => {
+    c.own = ownOrNot
+    let id = c.id
+    let filteredCard = playerCards.find((card) => {
+      return (Number.parseInt(card.id) === Number.parseInt(id))
+    })
+    filteredCard.own = ownOrNot
   })
   renderCards()
   renderResults()
@@ -222,6 +224,7 @@ function applyFilter() {
       cardsToRender.push(card)
     }
   })
+
   renderCards()
 }
 
@@ -287,6 +290,7 @@ function useLanguage(language) {
 
 function calcPlayerOwn(pool) {
   if (pool === 'all') {
+
     return Math.round(playerCards.filter(card => (card.own === true)).length / playerCards.length * 100)
   }
   else {
@@ -316,7 +320,7 @@ document.querySelector('#save').addEventListener('click', (event) => {
   })
   applyFilter()
   const capture = document.querySelector('#capture')
-  let scale = 8
+  let scale = 4
   domtoimage.toPng(capture, {
     width: capture.clientWidth * scale,
     height: capture.clientHeight * scale,
@@ -326,7 +330,7 @@ document.querySelector('#save').addEventListener('click', (event) => {
     }
   })
     .then(function (dataUrl) {
-      let fakeBtn = document.querySelector('#test')
+      let fakeBtn = document.querySelector('#download-button')
       fakeBtn.innerHTML = `<a id="download" href="${dataUrl}" download>DOWNLOAD</a>`
     })
     .then(() => {
@@ -335,5 +339,4 @@ document.querySelector('#save').addEventListener('click', (event) => {
       window.alert('Thank You for Waiting!')
     })
 })
-
 

@@ -1198,5 +1198,29 @@
         "type": "dance",
         "release": "20221227",
         "own": false
+    },
+    {
+        "id": "100",
+        "image": "rio-06-limited.webp",
+        "idol": "rio",
+        "version": "06",
+        "pool": "limited",
+        "name": "貴方と新春ホームカミング",
+        "job": "supporter",
+        "type": "dance",
+        "release": "20230103",
+        "own": false
+    },
+    {
+        "id": "101",
+        "image": "kokoro-05-limited.webp",
+        "idol": "kokoro",
+        "version": "05",
+        "pool": "limited",
+        "name": "うれしはずかし初詣",
+        "job": "buffer",
+        "type": "vocal",
+        "release": "20230103",
+        "own": false
     }
 ]
