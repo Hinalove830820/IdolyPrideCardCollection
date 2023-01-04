@@ -798,7 +798,7 @@
 
   #dashboard-title {
     font-size: 35px;
-    width: 95%;
+    width: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1114,9 +1114,9 @@
 
   #name[show] {
     position: fixed;
-    bottom: 90px;
+    bottom: 100px;
     z-index: 10;
-    width: 100%;
+    width: 900px;
     height: 50px;
 
     display: flex;
