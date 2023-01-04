@@ -9,8 +9,8 @@ const sortingRule = ['↓Name', '↑Name', '↓Date', '↑Date']
 let sortingRuleIndex = 0
 
 const multiLanguageArray = {
-  jp: ['所持率ﾁｪｯｶｰ', 'CN', '全選択', 'ソート', 'ﾌｨﾙﾀ', '　☆5所持率', '通常ｶﾞﾁｬ', '限定ｶﾞﾁｬ', 'ﾌｪｽｶﾞﾁｬ', '全☆5ｶｰﾄﾞ', 'ｽﾍﾟｼｬﾙ', 'ｽｺｱﾗｰ', 'ﾊﾞｯﾌｧｰ', 'ｻﾎﾟｰﾀｰ', '全取り消す', '...画面制作中...', '数秒かかると予想される', '滑らないでお待ちください'],
-  cn: ['曬卡小工具', 'JP', '全部選擇', '排序', '篩選器', '　的持有率', '常駐池', '限定池', 'FES池', '五星卡', '特殊池', 'scorer', 'buffer', 'support', 'Clear Idols', '...正在產製圖片...', '預計花費數秒至數十秒', '請耐心等候並不要滑動']
+  jp: ['所持率ﾁｪｯｶｰ', 'CN', '全選択', 'ソート', 'ﾌｨﾙﾀ', '☆5所持率', '通常ｶﾞﾁｬ', '限定ｶﾞﾁｬ', 'ﾌｪｽｶﾞﾁｬ', '全☆5ｶｰﾄﾞ', 'ｽﾍﾟｼｬﾙ', 'ｽｺｱﾗｰ', 'ﾊﾞｯﾌｧｰ', 'ｻﾎﾟｰﾀｰ', '全取り消す', '...画面制作中...', '数秒かかると予想される', '滑らないでお待ちください'],
+  cn: ['曬卡小工具', 'JP', '全部選擇', '排序', '篩選器', '的持有率', '常駐池', '限定池', 'FES池', '五星卡', '特殊池', 'scorer', 'buffer', 'support', 'Clear Idols', '...正在產製圖片...', '預計花費數秒至數十秒', '請耐心等候並不要滑動']
 };
 let languageToUse = ''
 
@@ -49,12 +49,10 @@ fetch('data.json')
     renderCards()
     renderResults()
     renderName(playerName)
-
     useLanguage('')
   })
 
 sorter.addEventListener('click', (event) => {
-
   sortingRuleIndex = (Number.parseInt(event.target.getAttribute('sort')) + 1) % sortingRule.length
   event.target.setAttribute('sort', sortingRuleIndex)
   switch (sortingRuleIndex) {
@@ -101,7 +99,6 @@ nameForm.addEventListener('submit', (event) => {
     nameForm.toggleAttribute('show')
     localSave()
   }
-
 }
 
 )
@@ -113,7 +110,6 @@ cardContainer.addEventListener('click', (event) => {
     renderResults()
     localSave()
   }
-
 })
 
 filterButton.addEventListener('click', (event) => {
@@ -127,10 +123,8 @@ filterButton.addEventListener('click', (event) => {
     modal.dataset.show = 'false'
     if (languageToUse === 'jp') {
       filterButton.innerHTML = `<p id="filter-label">${multiLanguageArray.jp[4]}</p>`
-
     } else {
       filterButton.innerHTML = `<p id="filter-label">${multiLanguageArray.cn[4]}</p>`
-
     }
   }
 })
@@ -167,7 +161,6 @@ filterAllButton.addEventListener('click', (event) => {
 
   } else {
     filterAllButton.innerText = event.target.hasAttribute('show') ? '全取り消す' : '全アイドル選択'
-
   }
 })
 
@@ -224,7 +217,6 @@ function applyFilter() {
       cardsToRender.push(card)
     }
   })
-
   renderCards()
 }
 
@@ -309,11 +301,14 @@ document.querySelector('#save').addEventListener('click', (event) => {
   document.querySelector('#alert').toggleAttribute('show')
   document.querySelector("#bottom-navigator ").style.position = 'relative'
   document.querySelector("#slide-bottom ").style.display = 'none'
+  document.querySelector("#slide-top ").style.display = 'none'
+  document.querySelector("#toolbar-background ").style.display = 'none'
+
   document.querySelectorAll('.blank').forEach((node) => {
     node.style.display = 'none'
   })
   document.querySelectorAll('.result').forEach((node) => {
-    node.style.fontSize = '26px'
+    node.style.fontSize = '24px'
   })
   document.querySelectorAll('.filter').forEach((filter) => {
     filter.dataset.select = true

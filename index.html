@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <div id="smart-phone">
+  <div id="root">
 
     <!-- 要截圖的都要放進來 -->
     <div id="capture">
@@ -39,6 +39,8 @@
       </div>
       <!-- 中間滑動欄 -->
       <div class="container" id="slide-top">
+
+
         <div id="select-all">
 
         </div>
@@ -89,10 +91,16 @@
     <div id="filter-button" data-show='false'>
       <p id="filter-label">ﾌｨﾙﾀ</p>
     </div>
+    <!-- 工具列背景空div -->
+    <div id="toolbar-background"></div>
+
     <!-- 下方按鈕 -->
-    <button class="user-action" id="save">
-      <p>SAVE</p>
-    </button>
+    <div id="save-container">
+      <button class="user-action" id="save">
+        <p>SAVE</p>
+      </button>
+    </div>
+
     <!-- <div class="user-action" id="share">
         <p>SHARE 分享按鈕 還沒做</p>
       </div> -->
