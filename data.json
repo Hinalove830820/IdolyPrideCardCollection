@@ -30,7 +30,7 @@
         "version": "03",
         "pool": "special",
         "name": "花火に鼓動が高鳴る夜",
-        "release": "20221005",
+        "release": "20220624",
         "job": "scorer",
         "type": "visual",
         "own": false
@@ -43,7 +43,7 @@
         "pool": "normal",
         "name": "イノセントステージ",
         "job": "buffer",
-        "release": "20220913",
+        "release": "20210624",
         "type": "vocal",
         "own": false
     },
