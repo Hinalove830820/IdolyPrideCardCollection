@@ -1,6 +1,12 @@
-* 電腦版
+* 更新資訊
+* ![image](https://i.imgur.com/bjAMJfq.png)
 
-![image](https://user-images.githubusercontent.com/115185721/195567438-b29c1025-413e-4803-b2d8-88ce856307d4.png)
+* 電腦版 (v2.0 暫時會跑版)
+
 * 手機版
+* ![image](https://i.imgur.com/PNqr1TQ.png)
 
-![image](https://user-images.githubusercontent.com/115185721/195569136-7c77679f-0a32-4eaa-b197-43cbd75dab22.png)
+* 篩選器和多語言！
+
+* ![image](https://i.imgur.com/ExoUJ2s.png)
+* ![image](https://i.imgur.com/uKXBWcd.png)
