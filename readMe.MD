@@ -1,7 +1,9 @@
 * 更新資訊
 * ![image](https://i.imgur.com/bjAMJfq.png)
 
-* 電腦版 (v2.0 暫時會跑版)
+* 電腦版 
+* ![image](https://i.imgur.com/ezfN4kf.jpg)
+
 
 * 手機版
 * ![image](https://i.imgur.com/PNqr1TQ.png)
